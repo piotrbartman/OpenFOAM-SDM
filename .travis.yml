@@ -4,7 +4,7 @@ before_script:
     - sudo apt-get install libboost-dev
 
     - mv OpenFOAM-dev OpenFOAM-new
-    - git clone --depth 0 git@github.com:OpenFOAM/OpenFOAM-dev.git
+    - git clone --depth 1 git@github.com:OpenFOAM/OpenFOAM-dev.git
     - cp -R OpenFOAM-new OpenFOAM-dev
 
 script:
