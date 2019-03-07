@@ -1,0 +1,11 @@
+language: bash
+
+before_script:
+    - mv OpenFOAM-dev OpenFOAM-new
+    - git clone --depth 0 git@github.com:OpenFOAM/OpenFOAM-dev.git
+    - cp -R OpenFOAM-new OpenFOAM-dev
+
+script:
+    - cd OpenFOAM-dev
+    - source etc/bashrc 
+    - foamSystemCheck
