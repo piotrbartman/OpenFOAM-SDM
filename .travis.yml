@@ -1,7 +1,7 @@
 language: bash
 
 before_script:
-    - sudo apt-get install libboost-dev
+    - sudo apt-get install libboost-dev libopenmpi-dev
 
     - mv OpenFOAM-dev OpenFOAM-new
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
