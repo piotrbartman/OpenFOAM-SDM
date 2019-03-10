@@ -15,6 +15,11 @@ script:
     - make
     - cd ../..
     
+    - cd src
+    - wmake libso OpenFOAM
+    - wmake libso meshTools
+    - cd ..
+
     - cd src/lagrangian
     - ./Allwmake
     - cd ../..
