@@ -20,10 +20,11 @@ script:
     - cd ../../..
     
     - cd src
+    - wmake libso Pstream
     - wmake libso OpenFOAM
+    - wmake libso fileFormats
     - wmake libso surfMesh
     - wmake libso triSurface
-    - wmake libso fileFormats
     - wmake libso meshTools
     - cd ..
 
