@@ -15,8 +15,15 @@ script:
     - make
     - cd ../..
     
+    - cd src/OSspecific/POSIX/
+    - ./Allwmake
+    - cd ../../..
+    
     - cd src
     - wmake libso OpenFOAM
+    - wmake libso surfMesh
+    - wmake libso triSurface
+    - wmake libso fileFormats
     - wmake libso meshTools
     - cd ..
 
