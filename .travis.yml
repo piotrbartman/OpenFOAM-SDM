@@ -14,6 +14,10 @@ script:
     - cd wmake/src 
     - make
     - cd ../..
+    
+    - cd src/lagrangian
+    - ./Allwmake
+    - cd ../..
 
     - cd applications/solvers/lagrangian/DPMFoam 
     - ./Allwmake
