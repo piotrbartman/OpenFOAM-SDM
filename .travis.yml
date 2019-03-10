@@ -10,5 +10,11 @@ before_script:
 script:
     - cd OpenFOAM-dev
     - source etc/bashrc 
+
+    - cd wmake/src 
+    - make
+    - cd ../..
+
     - cd applications/solvers/lagrangian/DPMFoam 
     - ./Allwmake
+    - cd ../../../..
