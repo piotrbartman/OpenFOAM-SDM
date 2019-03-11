@@ -10,7 +10,7 @@ before_script:
 script:
     - cd OpenFOAM-dev
     - source etc/bashrc 
-    - export WM_COMPILER=Gcc
+    - export WM_COMPILER=Clang
     - export WM_COMPILE_OPTION=Debug
     - export MAKEFLAGS='-j 2'
 
