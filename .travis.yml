@@ -34,10 +34,6 @@ script:
     - wmake libso 
     - cd ../..
     
-    - cd src/transportModels
-    - wmake libso compressible
-    - cd ../..
-
     - cd src
     - wmake libso OpenFOAM
     - wmake libso fileFormats
@@ -45,13 +41,22 @@ script:
     - wmake libso triSurface
     - wmake libso meshTools
     - wmake libso finiteVolume
+    - wmake libso dynamicMesh
     - wmake libso dynamicFvMesh
-    - wmake libso sampling
+    - wmake libso conversion
     - cd ..
+
+    - cd src/transportModels
+    - wmake libso compressible
+    - cd ../..
 
     - cd src/lagrangian
     - ./Allwmake
     - cd ../..
+
+    - cd src
+    - wmake libso sampling
+    - cd ..
 
     - cd applications/solvers/lagrangian/DPMFoam 
     - ./Allwmake
