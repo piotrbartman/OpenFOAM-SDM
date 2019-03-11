@@ -6,6 +6,10 @@ before_script:
     - mv OpenFOAM-dev OpenFOAM-new
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
     - cp -R OpenFOAM-new OpenFOAM-dev
+    
+    - export WM_COMPILER=Gcc
+    - export WM_COMPILE_OPTION=Debug
+    - export MAKEFLAGS='-j 2'
 
 script:
     - cd OpenFOAM-dev
@@ -20,7 +24,7 @@ script:
     - cd ../../..
 
     - cd src/Pstream
-    - wmake libso mpi
+    - wmake libso dummy
     - cd ../..
 
     - cd src
