@@ -20,7 +20,7 @@ script:
     - cd ../../..
 
     - cd src/Pstream
-    - ./Allwmake
+    - wmake libso mpi
     - cd ../..
 
     - cd src
@@ -29,6 +29,7 @@ script:
     - wmake libso surfMesh
     - wmake libso triSurface
     - wmake libso meshTools
+    - wmake libso finiteVolume
     - cd ..
 
     - cd src/lagrangian
