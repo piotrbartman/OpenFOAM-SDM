@@ -18,9 +18,12 @@ script:
     - cd src/OSspecific/POSIX/
     - ./Allwmake
     - cd ../../..
-    
+
+    - cd src/Pstream
+    - ./Allwmake
+    - cd ../..
+
     - cd src
-    - wmake libso Pstream
     - wmake libso OpenFOAM
     - wmake libso fileFormats
     - wmake libso surfMesh
