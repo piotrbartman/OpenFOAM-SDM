@@ -26,6 +26,18 @@ script:
     - wmake libso dummy
     - cd ../..
 
+    - cd src/thermophysicalModels
+    - wmake libso basic
+    - wmake libso specie
+    - wmake libso SLGThermo
+    - wmake libso thermophysicalProperties
+    - wmake libso 
+    - cd ../..
+    
+    - cd src/transportModels
+    - wmake libso compressible
+    - cd ../..
+
     - cd src
     - wmake libso OpenFOAM
     - wmake libso fileFormats
@@ -33,6 +45,8 @@ script:
     - wmake libso triSurface
     - wmake libso meshTools
     - wmake libso finiteVolume
+    - wmake libso dynamicFvMesh
+    - wmake libso sampling
     - cd ..
 
     - cd src/lagrangian
