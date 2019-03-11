@@ -25,14 +25,6 @@ script:
     - cd src/Pstream
     - wmake libso dummy
     - cd ../..
-
-    - cd src/thermophysicalModels
-    - wmake libso basic
-    - wmake libso specie
-    - wmake libso SLGThermo
-    - wmake libso thermophysicalProperties
-    - wmake libso 
-    - cd ../..
     
     - cd src
     - wmake libso OpenFOAM
@@ -45,6 +37,13 @@ script:
     - wmake libso dynamicFvMesh
     - wmake libso conversion
     - cd ..
+
+    - cd src/thermophysicalModels
+    - wmake libso specie
+    - wmake libso SLGThermo
+    - wmake libso thermophysicalProperties
+    - wmake libso basic
+    - cd ../..
 
     - cd src/transportModels
     - wmake libso compressible
