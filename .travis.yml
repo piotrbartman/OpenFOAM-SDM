@@ -7,13 +7,12 @@ before_script:
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
     - cp -R OpenFOAM-new OpenFOAM-dev
     
-    - export WM_COMPILER=Gcc
-    - export WM_COMPILE_OPTION=Debug
-    - export MAKEFLAGS='-j 2'
-
 script:
     - cd OpenFOAM-dev
     - source etc/bashrc 
+    - export WM_COMPILER=Gcc
+    - export WM_COMPILE_OPTION=Debug
+    - export MAKEFLAGS='-j 2'
 
     - cd wmake/src 
     - make
