@@ -33,20 +33,22 @@ script:
     - wmake libso triSurface
     - wmake libso meshTools
     - wmake libso finiteVolume
+    - wmake libso mesh
     - wmake libso dynamicMesh
     - wmake libso dynamicFvMesh
     - wmake libso conversion
+    - wmake libso regionModels
     - cd ..
 
+    - cd src/transportModels
+    - wmake libso compressible
+    - cd ../..
+    
     - cd src/thermophysicalModels
     - wmake libso specie
     - wmake libso SLGThermo
     - wmake libso thermophysicalProperties
     - wmake libso basic
-    - cd ../..
-
-    - cd src/transportModels
-    - wmake libso compressible
     - cd ../..
 
     - cd src/lagrangian
