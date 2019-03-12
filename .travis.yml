@@ -1,8 +1,7 @@
-language: cpp
-compiler: clang
+language: bash
 
 before_script:
-    - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev 
+    - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev clang-3.9
 
     - mv OpenFOAM-dev OpenFOAM-new
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
@@ -13,6 +12,8 @@ script:
     - source etc/bashrc 
     - export WM_COMPILER=Clang
     - export WM_COMPILE_OPTION=FastCompilation
+    - export WM_CXX=clang++-3.9
+    - export WM_CC=clang-3.9
     - export MAKEFLAGS='-j'
 
     - cd wmake/src 
