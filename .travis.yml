@@ -21,35 +21,38 @@ script:
     - cd src/OSspecific/POSIX/
     - ./Allwmake
     - cd ../../..
-
-    - cd src/Pstream
-    - wmake libso dummy
-    - cd ../..
     
     - cd src
+    - cd Pstream
+    - wmake libso dummy
+    - cd ..
     - wmake libso OpenFOAM
     - wmake libso fileFormats
     - wmake libso surfMesh
     - wmake libso triSurface
     - wmake libso meshTools
     - wmake libso finiteVolume
-    - wmake libso mesh
+    - cd mesh
+    - wmake libso extrudeModel
+    - cd ..
     - wmake libso dynamicMesh
     - wmake libso dynamicFvMesh
     - wmake libso conversion
-    - wmake libso regionModels
+    - cd regionModels
+    - wmake libso regionModel
+    - wmake libso surfaceFilmModels
     - cd ..
-
-    - cd src/transportModels
+    - cd transportModels
     - wmake libso compressible
-    - cd ../..
-    
-    - cd src/thermophysicalModels
+    - cd ..    
+    - cd thermophysicalModels
     - wmake libso specie
     - wmake libso SLGThermo
     - wmake libso thermophysicalProperties
     - wmake libso basic
-    - cd ../..
+    - wmake libso reactionThermo
+    - cd ..
+    - cd ..
 
     - cd src/lagrangian
     - ./Allwmake
