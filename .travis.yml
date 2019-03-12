@@ -2,6 +2,10 @@ language: bash
 
 before_script:
     - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev clang-3.9
+    - sudo mv /usr/local/clang-5.0.0/bin/clang++ /usr/local/clang-5.0.0/bin/clang++.off
+    - sudo mv /usr/local/clang-5.0.0/bin/clang /usr/local/clang-5.0.0/bin/clang.off
+    - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-3.9/bin/clang++ 100
+    - sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-3.9/bin/clang 100
 
     - mv OpenFOAM-dev OpenFOAM-new
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
@@ -12,8 +16,8 @@ script:
     - source etc/bashrc 
     - export WM_COMPILER=Clang
     - export WM_COMPILE_OPTION=FastCompilation
-    - export WM_CXX=clang++-3.9
-    - export WM_CC=clang-3.9
+      #- export WM_CXX=clang++-3.9
+      #- export WM_CC=clang-3.9
     - export MAKEFLAGS='-j'
 
     - cd wmake/src 
