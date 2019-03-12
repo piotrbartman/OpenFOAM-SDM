@@ -53,6 +53,7 @@ script:
     - wmake libso basic
     - wmake libso solidSpecie
     - wmake libso reactionThermo
+    - wmake libso solidThermo
     - wmake libso radiation
     - cd ..
     - cd lagrangian
@@ -76,6 +77,7 @@ script:
     - wmake libso intermediate
     - wmake libso turbulence
     - cd ..
+    - wmake libso topoChangerFvMesh
     - cd ..
 
     - cd applications/solvers/lagrangian/DPMFoam 
