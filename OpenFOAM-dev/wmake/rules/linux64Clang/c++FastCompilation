@@ -1,2 +1,2 @@
 c++DBUG    = -DNDEBUG
-c++OPT      = -O1
+c++OPT      = -O0
