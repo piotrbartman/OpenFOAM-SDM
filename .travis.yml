@@ -49,8 +49,8 @@ script:
     - wmake libso SLGThermo
     - wmake libso thermophysicalProperties
     - wmake libso basic
-    - wmake libso reactionThermo
     - wmake libso solidSpecie
+    - wmake libso reactionThermo
     - cd ..
     - cd lagrangian
     - wmake libso distributionModels
@@ -59,6 +59,7 @@ script:
     - wmake libso surfaceFilmModels
     - cd ..
     - cd lagrangian
+    - wmake libso basic
     - wmake libso solidParticle
     - cd ..
     - wmake libso sampling
