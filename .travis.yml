@@ -43,6 +43,7 @@ script:
     - cd ..
     - cd transportModels
     - wmake libso compressible
+    - wmake libso incompressible
     - cd ..    
     - cd thermophysicalModels
     - wmake libso specie
@@ -63,6 +64,15 @@ script:
     - wmake libso solidParticle
     - cd ..
     - wmake libso sampling
+    - cd TurbulenceModels
+    - wmake libso turbulenceModels
+    - wmake incompressible
+    - cd ..
+    - wmake libso fvOptions
+    - cd lagrangian
+    - wmake libso intermediate
+    - wmake libso turbulence
+    - cd ..
     - cd ..
 
     - cd applications/solvers/lagrangian/DPMFoam 
