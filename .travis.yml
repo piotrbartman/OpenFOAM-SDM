@@ -40,7 +40,6 @@ script:
     - wmake libso conversion
     - cd regionModels
     - wmake libso regionModel
-    - wmake libso surfaceFilmModels
     - cd ..
     - cd transportModels
     - wmake libso compressible
@@ -51,14 +50,17 @@ script:
     - wmake libso thermophysicalProperties
     - wmake libso basic
     - wmake libso reactionThermo
+    - wmake libso solidSpecie
     - cd ..
+    - cd lagrangian
+    - wmake libso distributionModels
     - cd ..
-
-    - cd src/lagrangian
-    - ./Allwmake
-    - cd ../..
-
-    - cd src
+    - cd regionModels
+    - wmake libso surfaceFilmModels
+    - cd ..
+    - cd lagrangian
+    - wmake libso solidParticle
+    - cd ..
     - wmake libso sampling
     - cd ..
 
