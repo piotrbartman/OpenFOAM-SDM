@@ -11,8 +11,8 @@ script:
     - cd OpenFOAM-dev
     - source etc/bashrc 
     - export WM_COMPILER=Clang
-    - export WM_COMPILE_OPTION=Debug
-    - export MAKEFLAGS='-j 2'
+    - export WM_COMPILE_OPTION=FastCompilation
+    - export MAKEFLAGS='-j'
 
     - cd wmake/src 
     - make
@@ -24,60 +24,59 @@ script:
     
     - cd src
     - cd Pstream
-    - wmake libso dummy
+    - wmake -j libso dummy
     - cd ..
-    - wmake libso OpenFOAM
-    - wmake libso fileFormats
-    - wmake libso surfMesh
-    - wmake libso triSurface
-    - wmake libso meshTools
-    - wmake libso finiteVolume
+    - wmake -j libso OpenFOAM
+    - wmake -j libso fileFormats
+    - wmake -j libso surfMesh
+    - wmake -j libso triSurface
+    - wmake -j libso meshTools
+    - wmake -j libso finiteVolume
     - cd mesh
-    - wmake libso extrudeModel
+    - wmake -j libso extrudeModel
     - cd ..
-    - wmake libso dynamicMesh
-    - wmake libso dynamicFvMesh
-    - wmake libso conversion
+    - wmake -j libso dynamicMesh
+    - wmake -j libso dynamicFvMesh
+    - wmake -j libso conversion
     - cd regionModels
-    - wmake libso regionModel
+    - wmake -j libso regionModel
     - cd ..
     - cd transportModels
-    - wmake libso compressible
-    - wmake libso twoPhaseMixture
-    - wmake libso incompressible
+    - wmake -j libso compressible
+    - wmake -j libso twoPhaseMixture
+    - wmake -j libso incompressible
     - cd ..    
     - cd thermophysicalModels
-    - wmake libso specie
-    - wmake libso SLGThermo
-    - wmake libso thermophysicalProperties
-    - wmake libso basic
-    - wmake libso solidSpecie
-    - wmake libso reactionThermo
-    - wmake libso solidThermo
-    - wmake libso radiation
+    - wmake -j libso specie
+    - wmake -j libso SLGThermo
+    - wmake -j libso thermophysicalProperties
+    - wmake -j libso basic
+    - wmake -j libso solidSpecie
+    - wmake -j libso reactionThermo
+    - wmake -j libso solidThermo
     - cd ..
     - cd lagrangian
-    - wmake libso distributionModels
+    - wmake -j libso distributionModels
     - cd ..
     - cd regionModels
-    - wmake libso surfaceFilmModels
+    - wmake -j libso surfaceFilmModels
     - cd ..
     - cd lagrangian
-    - wmake libso basic
-    - wmake libso solidParticle
+    - wmake -j libso basic
+    - wmake -j libso solidParticle
     - cd ..
-    - wmake libso sampling
+    - wmake -j libso sampling
     - cd TurbulenceModels
-    - wmake libso turbulenceModels
-    - wmake libso incompressible
-    - wmake libso compressible
+    - wmake -j libso turbulenceModels
+    - wmake -j libso incompressible
+    - wmake -j libso compressible
     - cd ..
-    - wmake libso fvOptions
+    - wmake -j libso fvOptions
     - cd lagrangian
-    - wmake libso intermediate
-    - wmake libso turbulence
+    - wmake -j libso intermediate
+    - wmake -j libso turbulence
     - cd ..
-    - wmake libso topoChangerFvMesh
+    - wmake -j libso topoChangerFvMesh
     - cd ..
 
     - cd applications/solvers/lagrangian/DPMFoam 
