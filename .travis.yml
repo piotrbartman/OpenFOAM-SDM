@@ -1,7 +1,8 @@
-language: bash
+language: cpp
+compiler: clang
 
 before_script:
-    - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev clang-3.9
+    - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev 
 
     - mv OpenFOAM-dev OpenFOAM-new
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
