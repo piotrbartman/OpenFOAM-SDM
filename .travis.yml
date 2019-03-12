@@ -43,6 +43,7 @@ script:
     - cd ..
     - cd transportModels
     - wmake libso compressible
+    - wmake libso twoPhaseMixture
     - wmake libso incompressible
     - cd ..    
     - cd thermophysicalModels
@@ -52,6 +53,7 @@ script:
     - wmake libso basic
     - wmake libso solidSpecie
     - wmake libso reactionThermo
+    - wmake libso radiation
     - cd ..
     - cd lagrangian
     - wmake libso distributionModels
@@ -66,7 +68,8 @@ script:
     - wmake libso sampling
     - cd TurbulenceModels
     - wmake libso turbulenceModels
-    - wmake incompressible
+    - wmake libso incompressible
+    - wmake libso compressible
     - cd ..
     - wmake libso fvOptions
     - cd lagrangian
