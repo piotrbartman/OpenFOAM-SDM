@@ -5,7 +5,7 @@ before_script:
 
     - mv OpenFOAM-dev OpenFOAM-new
     - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
-    - cp -R OpenFOAM-new OpenFOAM-dev
+    - cp -R OpenFOAM-new/* OpenFOAM-dev
     
 script:
     - cd OpenFOAM-dev
