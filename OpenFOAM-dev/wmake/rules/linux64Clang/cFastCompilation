@@ -1,2 +1,2 @@
 cDBUG    = -DNDEBUG
-cOPT      = -O0
+cOPT      = -O0 -pipe
