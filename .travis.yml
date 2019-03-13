@@ -17,7 +17,7 @@ script:
     - export WM_COMPILER=Clang
     - export WM_COMPILE_OPTION=FastCompilation
     - export MAKEFLAGS='-j4'
-    - export WMAKEOPTS='-quiet -j4'
+    - export WMAKEOPTS='-silent -j4'
 
     - cd wmake/src 
     - make
