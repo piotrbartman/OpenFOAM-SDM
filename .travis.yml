@@ -16,15 +16,15 @@ script:
     - source etc/bashrc 
     - export WM_COMPILER=Clang
     - export WM_COMPILE_OPTION=FastCompilation
-    - export MAKEFLAGS='-j4'
-    - export WMAKEOPTS='-silent -j4'
+    - export MAKEFLAGS='-j3'
+    - export WMAKEOPTS='-silent -j3'
 
     - cd wmake/src 
     - make
     - cd ../..
     
     - cd src/OSspecific/POSIX/
-    - ./Allwmake
+    - wmake $WMAKEOPTS all
     - cd ../../..
     
     - cd src
