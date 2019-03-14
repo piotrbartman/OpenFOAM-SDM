@@ -1,11 +1,90 @@
 language: bash
 
 before_script:
-    - mv OpenFOAM-dev OpenFOAM-new
-    - git clone --depth 0 git@github.com:OpenFOAM/OpenFOAM-dev.git
-    - cp -R OpenFOAM-new OpenFOAM-dev
+    - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev clang-3.9
+    - sudo mv /usr/local/clang-5.0.0/bin/clang++ /usr/local/clang-5.0.0/bin/clang++.off
+    - sudo mv /usr/local/clang-5.0.0/bin/clang /usr/local/clang-5.0.0/bin/clang.off
+    - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-3.9/bin/clang++ 100
+    - sudo update-alternatives --install /usr/bin/clang clang /usr/lib/llvm-3.9/bin/clang 100
 
+    - mv OpenFOAM-dev OpenFOAM-new
+    - git clone --depth 1 https://github.com/OpenFOAM/OpenFOAM-dev.git
+    - cp -R OpenFOAM-new/* OpenFOAM-dev
+    
 script:
     - cd OpenFOAM-dev
     - source etc/bashrc 
-    - foamSystemCheck
+    - export WM_COMPILER=Clang
+    - export WM_COMPILE_OPTION=FastCompilation
+    - export MAKEFLAGS='-j3'
+    - export WMAKEOPTS='-silent -j3'
+
+    - cd wmake/src 
+    - make
+    - cd ../..
+    
+    - cd src/OSspecific/POSIX/
+    - wmake $WMAKEOPTS all
+    - cd ../../..
+    
+    - cd src
+    - cd Pstream
+    - wmake $WMAKEOPTS libso dummy
+    - cd ..
+    - wmake $WMAKEOPTS libso OpenFOAM
+    - wmake $WMAKEOPTS libso fileFormats
+    - wmake $WMAKEOPTS libso surfMesh
+    - wmake $WMAKEOPTS libso triSurface
+    - wmake $WMAKEOPTS libso meshTools
+    - wmake $WMAKEOPTS libso finiteVolume
+    - cd mesh
+    - wmake $WMAKEOPTS libso extrudeModel
+    - cd ..
+    - wmake $WMAKEOPTS libso dynamicMesh
+    - wmake $WMAKEOPTS libso dynamicFvMesh
+    - wmake $WMAKEOPTS libso conversion
+    - cd regionModels
+    - wmake $WMAKEOPTS libso regionModel
+    - cd ..
+    - cd transportModels
+    - wmake $WMAKEOPTS libso compressible
+    - wmake $WMAKEOPTS libso twoPhaseMixture
+    - wmake $WMAKEOPTS libso incompressible
+    - cd ..    
+    - cd thermophysicalModels
+    - wmake $WMAKEOPTS libso specie
+    - wmake $WMAKEOPTS libso SLGThermo
+    - wmake $WMAKEOPTS libso thermophysicalProperties
+    - wmake $WMAKEOPTS libso basic
+    - wmake $WMAKEOPTS libso solidSpecie
+    - wmake $WMAKEOPTS libso reactionThermo
+    - wmake $WMAKEOPTS libso solidThermo
+    - cd ..
+    - cd lagrangian
+    - wmake $WMAKEOPTS libso distributionModels
+    - cd ..
+    - cd regionModels
+    - wmake $WMAKEOPTS libso surfaceFilmModels
+    - cd ..
+    - cd lagrangian
+    - wmake $WMAKEOPTS libso basic
+    - wmake $WMAKEOPTS libso solidParticle
+    - cd ..
+    - wmake $WMAKEOPTS libso sampling
+    - cd TurbulenceModels
+    - wmake $WMAKEOPTS libso turbulenceModels
+    - wmake $WMAKEOPTS libso incompressible
+    - wmake $WMAKEOPTS libso compressible
+    - cd ..
+    - wmake $WMAKEOPTS libso fvOptions
+    - wmake $WMAKEOPTS libso radiationModels
+    - cd lagrangian
+    - wmake $WMAKEOPTS libso intermediate
+    - wmake $WMAKEOPTS libso turbulence
+    - cd ..
+    - wmake $WMAKEOPTS libso topoChangerFvMesh
+    - cd ..
+
+    - cd applications/solvers/lagrangian/DPMFoam 
+    - wmake $WMAKEOPTS all
+    - cd ../../../..
