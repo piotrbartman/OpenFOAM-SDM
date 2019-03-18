@@ -1,5 +1,9 @@
 language: bash
 
+env:
+    - OFAPP=DPMFoam
+    - OFAPP=sprayFOAM
+
 before_script:
     - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev clang-3.9
     - sudo mv /usr/local/clang-5.0.0/bin/clang++ /usr/local/clang-5.0.0/bin/clang++.off
@@ -81,10 +85,11 @@ script:
     - cd lagrangian
     - wmake $WMAKEOPTS libso intermediate
     - wmake $WMAKEOPTS libso turbulence
+    - if [[ $OFAPP == 'sprayFOAM' ]]; then wmake $WMAKEOPTS libso spray; fi
     - cd ..
     - wmake $WMAKEOPTS libso topoChangerFvMesh
     - cd ..
 
-    - cd applications/solvers/lagrangian/DPMFoam 
+    - cd applications/solvers/lagrangian/$OFAPP 
     - wmake $WMAKEOPTS all
     - cd ../../../..
