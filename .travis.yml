@@ -2,7 +2,7 @@ language: bash
 
 env:
 #    - OFAPP=DPMFoam
-    - OFAPP=sprayFOAM
+    - OFAPP=sprayFoam
 
 before_script:
     - export install="sudo apt-get install --no-install-recommends"
