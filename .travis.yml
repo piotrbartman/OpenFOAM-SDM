@@ -1,11 +1,13 @@
 language: bash
 
 env:
-    - OFAPP=DPMFoam
+#    - OFAPP=DPMFoam
     - OFAPP=sprayFOAM
 
 before_script:
-    - sudo apt-get install --no-install-recommends libboost-dev libopenmpi-dev clang-3.9
+    - export install="sudo apt-get install --no-install-recommends"
+    - $install libboost-dev libopenmpi-dev clang-3.9
+    - if [[ $OFAPP == 'sprayFOAM' ]]; then $install libptscotch-dev; fi
     - sudo mv /usr/local/clang-5.0.0/bin/clang++ /usr/local/clang-5.0.0/bin/clang++.off
     - sudo mv /usr/local/clang-5.0.0/bin/clang /usr/local/clang-5.0.0/bin/clang.off
     - sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/lib/llvm-3.9/bin/clang++ 100
