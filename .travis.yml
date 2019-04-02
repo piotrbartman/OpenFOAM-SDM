@@ -92,6 +92,9 @@ script:
     - cd engine
     - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso engineTime; fi
     - cd ..
+    - cd combustionModels
+    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso noCombustion; fi
+    - cd ..
     - wmake $WMAKEOPTS libso topoChangerFvMesh
     - cd ..
 
