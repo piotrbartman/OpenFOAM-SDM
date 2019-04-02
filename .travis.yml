@@ -1,7 +1,7 @@
 language: bash
 
 env:
-#    - OFAPP=DPMFoam
+    - OFAPP=DPMFoam
     - OFAPP=sprayFoam
 
 before_script:
@@ -88,6 +88,9 @@ script:
     - wmake $WMAKEOPTS libso intermediate
     - wmake $WMAKEOPTS libso turbulence
     - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso spray; fi
+    - cd ..
+    - cd engine
+    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso engineTime; fi
     - cd ..
     - wmake $WMAKEOPTS libso topoChangerFvMesh
     - cd ..
