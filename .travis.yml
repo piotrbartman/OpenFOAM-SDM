@@ -90,10 +90,16 @@ script:
     - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso spray; fi
     - cd ..
     - cd engine
-    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso engineTime; fi
+    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso all; fi
     - cd ..
     - cd combustionModels
-    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso noCombustion; fi
+    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso all; fi
+    - cd ..
+    - cd chemistryModel
+    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso all; fi
+    - cd ..
+    - cd ODE
+    - if [[ $OFAPP == 'sprayFoam' ]]; then wmake $WMAKEOPTS libso all; fi
     - cd ..
     - wmake $WMAKEOPTS libso topoChangerFvMesh
     - cd ..
