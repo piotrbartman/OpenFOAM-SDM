@@ -49,9 +49,9 @@ Foam::distributionModels::lognormal::lognormal
     distributionModel(typeName, dict, rndGen),
     minValue_(readScalar(distributionModelDict_.lookup("minValue"))),
     maxValue_(readScalar(distributionModelDict_.lookup("maxValue"))),
-    expectation_(m_to_mu(readScalar(distributionModelDict_.lookup("expectation"))),
+    expectation_(m_to_mu(readScalar(distributionModelDict_.lookup("expectation")),
             readScalar(distributionModelDict_.lookup("variance")))),
-    variance_(v_to_var(readScalar(distributionModelDict_.lookup("expectation"))),
+    variance_(v_to_var(readScalar(distributionModelDict_.lookup("expectation")),
             readScalar(distributionModelDict_.lookup("variance")))),
     a_(0.147)
 {
