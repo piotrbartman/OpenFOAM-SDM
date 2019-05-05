@@ -30,7 +30,7 @@ License
 
 #include "NoStochasticCollision.H"
 #include "ORourkeCollision.H"
-#include "SDMCollision.H"
+#include "../../submodels/StochasticCollision/SDMCollision/SDMCollision.H"
 #include "TrajectoryCollision.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
