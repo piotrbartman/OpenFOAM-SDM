@@ -84,7 +84,7 @@ static Foam::scalar Foam::distributionModels::lognormal::m_to_mu
         const scalar v
 )
 {
-    return log(m / sqrt(1.0 + (v / m*m)))
+    return log(m / sqrt(1.0 + (v / m*m)));
 }
 
 
@@ -94,7 +94,7 @@ static Foam::scalar Foam::distributionModels::lognormal::v_to_var
         const scalar v
 )
 {
-    return log(1.0 + (v / m*m))
+    return log(1.0 + (v / m*m));
 }
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
