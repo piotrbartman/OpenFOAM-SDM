@@ -78,7 +78,7 @@ Foam::distributionModels::lognormal::lognormal(const lognormal& p)
 
 // * * * * * * * * * * * * * * Static Functions  * * * * * * * * * * * * * * //
 
-static Foam::scalar Foam::distributionModels::lognormal::m_to_mu
+Foam::scalar Foam::distributionModels::lognormal::m_to_mu
 (
         const scalar m,
         const scalar v
@@ -88,7 +88,7 @@ static Foam::scalar Foam::distributionModels::lognormal::m_to_mu
 }
 
 
-static Foam::scalar Foam::distributionModels::lognormal::v_to_var
+Foam::scalar Foam::distributionModels::lognormal::v_to_var
 (
         const scalar m,
         const scalar v
