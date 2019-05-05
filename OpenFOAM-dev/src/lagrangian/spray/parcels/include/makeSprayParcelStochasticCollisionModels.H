@@ -30,7 +30,7 @@ License
 
 #include "NoStochasticCollision.H"
 #include "ORourkeCollision.H"
-#include "../../submodels/StochasticCollision/SDMCollision/SDMCollision.H"
+#include "opt/OpenFOAM-dev/src/lagrangian/spray/submodels/StochasticCollision/SDMCollision/SDMCollision.H"
 #include "TrajectoryCollision.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
