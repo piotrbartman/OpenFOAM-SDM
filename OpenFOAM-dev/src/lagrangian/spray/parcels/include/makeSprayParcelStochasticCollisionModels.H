@@ -30,7 +30,6 @@ License
 
 #include "NoStochasticCollision.H"
 #include "ORourkeCollision.H"
-#include "SDMCollision.H"
 #include "TrajectoryCollision.H"
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
@@ -40,7 +39,6 @@ License
     makeStochasticCollisionModel(CloudType);                                   \
     makeStochasticCollisionModelType(NoStochasticCollision, CloudType);        \
     makeStochasticCollisionModelType(ORourkeCollision, CloudType);             \
-    makeStochasticCollisionModelType(SDMCollision, CloudType);                 \
     makeStochasticCollisionModelType(TrajectoryCollision, CloudType);
 
 
