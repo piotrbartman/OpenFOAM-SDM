@@ -40,7 +40,7 @@ License
     makeStochasticCollisionModel(CloudType);                                   \
     makeStochasticCollisionModelType(NoStochasticCollision, CloudType);        \
     makeStochasticCollisionModelType(ORourkeCollision, CloudType);             \
-    makeStochasticCollisionModelType(SDMCollision, CloudType);
+    makeStochasticCollisionModelType(SDMCollision, CloudType);                 \
     makeStochasticCollisionModelType(TrajectoryCollision, CloudType);
 
 

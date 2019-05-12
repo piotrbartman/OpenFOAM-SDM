@@ -39,13 +39,14 @@ void Foam::ORourkeCollision<CloudType>::collide
     const scalar dt
 )
 {
-    Info<< "ORourke collision\n";
+    Info<< "ORourke collide()\n";
     // Create the occupancy list for the cells
     labelList occupancy(this->owner().mesh().nCells(), 0);
     forAllIter(typename CloudType, this->owner(), iter)
     {
         occupancy[iter().cell()]++;
     }
+    Info<< "occupancy list: " << occupancy;
 
     // Initialize the sizes of the lists of parcels in each cell
     CompactListList<parcelType*> pInCell(occupancy);
