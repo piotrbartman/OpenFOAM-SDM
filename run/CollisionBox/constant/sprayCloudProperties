@@ -117,13 +117,13 @@ subModels
 
     breakupModel    ReitzDiwakar; // ReitzKHRT;
 
-    // ORourke
-    stochasticCollisionModel ORourke;
-    ORourkeCoeffs
+    // SDM
+    stochasticCollisionModel SDM;
+    SDMCoeffs
     {
 	coalescence off;
     }
-    // ORourke - end
+    // SDM - end
 
     radiation       off;
 
