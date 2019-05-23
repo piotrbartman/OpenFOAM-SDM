@@ -25,14 +25,14 @@ z_max 10;
 
 vertices
 (
-    (x_min y_min z_min)
-    (x_min y_min z_max)
-    (x_max y_min z_max)
-    (x_max y_min z_min)
-    (x_min y_max z_min)
-    (x_min y_max z_max)
-    (x_max y_max z_max)
-    (x_max y_max z_min)
+    ($x_min $y_min $z_min)
+    ($x_min $y_min $z_max)
+    ($x_max $y_min $z_max)
+    ($x_max $y_min $z_min)
+    ($x_min $y_max $z_min)
+    ($x_min $y_max $z_max)
+    ($x_max $y_max $z_max)
+    ($x_max $y_max $z_min)
 );
 
 blocks
