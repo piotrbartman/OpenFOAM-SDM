@@ -36,7 +36,7 @@ inertSpecie     N2;
 
 liquids
 {
-    H20; //C7H16;
+    H2O; //C7H16;
 }
 
 solids
