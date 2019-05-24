@@ -15,14 +15,12 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//How to turn it off?
+combustionModel none;
 
-combustionModel PaSR;
-
-PaSRCoeffs
-{
-    Cmix                1.0;
-}
+//PaSRCoeffs
+//{
+//    Cmix                1.0;
+//}
 
 
 // ************************************************************************* //

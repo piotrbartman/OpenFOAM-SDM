@@ -56,7 +56,7 @@ solution
 
 constantProperties
 {
-    T0              320;
+    T0              300;
 
     // place holders for rho0 and Cp0
     // - reset from liquid properties using T0
@@ -109,13 +109,13 @@ subModels
 
     compositionModel singlePhaseMixture;
 
-    phaseChangeModel liquidEvaporationBoil;
+    phaseChangeModel none; //liquidEvaporationBoil;
 
     surfaceFilmModel none;
 
     atomizationModel none;
 
-    breakupModel    ReitzDiwakar; // ReitzKHRT;
+    breakupModel    none; //ReitzDiwakar; // ReitzKHRT;
 
     // SDM
     stochasticCollisionModel SDM;
@@ -143,18 +143,21 @@ subModels
         (
             liquid
             {
-                C7H16               1;
+                H20               1;
             }
         );
     }
 
+/*
     liquidEvaporationBoilCoeffs
     {
         enthalpyTransfer enthalpyDifference;
 
         activeLiquids    ( C7H16 );
     }
+*/
 
+/*
     ReitzDiwakarCoeffs
     {
         solveOscillationEq yes;
@@ -163,6 +166,7 @@ subModels
         Cstrip          0.5;
         Cs              10;
     }
+*/
 
 /*
     ReitzKHRTCoeffs
