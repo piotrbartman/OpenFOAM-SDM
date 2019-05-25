@@ -46,7 +46,6 @@ void Foam::ORourkeCollision<CloudType>::collide
     {
         occupancy[iter().cell()]++;
     }
-    Info<< "occupancy list: " << occupancy;
 
     // Initialize the sizes of the lists of parcels in each cell
     CompactListList<parcelType*> pInCell(occupancy);
@@ -118,6 +117,7 @@ void Foam::ORourkeCollision<CloudType>::collide
             this->owner().deleteParticle(p);
         }
     }
+    Info << "ORourke end\n";
 }
 
 
@@ -152,6 +152,7 @@ bool Foam::ORourkeCollision<CloudType>::collideParcels
     // Collision occurs
     if (xx > collProb)
     {
+        Info << "c";
         if (d1 > d2)
         {
             return collideSorted(dt, p1, p2, m1, m2);
@@ -228,6 +229,7 @@ bool Foam::ORourkeCollision<CloudType>::collideSorted
     // Coalescence
     if (coalescence_ && prob < coalesceProb)
     {
+        Info << "u";
         // Number of the droplets that coalesce
         scalar nProb = prob*nP2/nP1;
 
